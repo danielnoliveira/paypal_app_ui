@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   StatusBar,
@@ -16,11 +16,17 @@ import {
   Text,
   View,
   Dimensions,
+  TextInput,
+  TouchableOpacity,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import LinkButton from './src/components/LinkButton';
 
 const {width, height} = Dimensions.get('window');
 
 const App = () => {
+  const [user, setUser] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="transparent" barStyle="dark-content" />
@@ -31,32 +37,81 @@ const App = () => {
         />
         <Image source={require('./assets/logo-large.png')} />
       </View>
+      <View>
+        <TextInput
+          style={styles.input}
+          value={user}
+          onChangeText={text => setUser(text)}
+          placeholder="Enter your name or email"
+        />
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={text => setPassword(text)}
+          placeholder="Passowrd"
+        />
+        <TouchableOpacity
+          style={styles.loginButton}
+          activeOpacity={0.8}
+          onPress={() => console.log('Botão apertado')}>
+          <LinearGradient
+            style={styles.gradient}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            angle={90}
+            angleCenter={{x: 0.5, y: 0.5}}
+            colors={['#0070BA', '#1546A0']}>
+            <Text style={styles.loginButtonText}>Log in</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
+      <LinkButton
+        content="Having trouble logging in?"
+        cb={() => console.log('Login problems')}
+      />
+      <LinkButton content="Sign up" cb={() => console.log('Sign up')} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  LogoPayPal: {
-    flexDirection: 'row',
-    marginTop: height * 0.16133004926,
-    marginHorizontal: width * 0,
-    alignItems: 'baseline',
-  },
   container: {
     flex: 1,
     alignItems: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  LogoPayPal: {
+    flexDirection: 'row',
+    marginTop: height * 0.16133004926,
+    marginBottom: height * 0.12133004926,
+    marginHorizontal: width * 0,
+    alignItems: 'baseline',
   },
-  sectionDescription: {
-    marginTop: 8,
+  input: {
+    width: width * 0.696,
+    height: 56,
+    textAlign: 'center',
     fontSize: 18,
-    fontWeight: '400',
+    lineHeight: 22.93,
+    fontWeight: '600',
+    fontFamily: 'Roboto',
+    borderRadius: 20,
+    marginBottom: 16,
   },
-  highlight: {
+  loginButton: {
+    width: width * 0.696,
+    height: 64,
+    marginTop: 37,
+  },
+  loginButtonText: {
+    fontSize: 20,
+    lineHeight: 64,
     fontWeight: '700',
+    fontFamily: 'Roboto',
+    color: 'white',
+    textAlign: 'center',
+  },
+  gradient: {
+    flex: 1,
   },
 });
 
