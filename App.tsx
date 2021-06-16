@@ -9,20 +9,42 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+} from 'react-native';
+
+const {width, height} = Dimensions.get('window');
 
 const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text style={styles.sectionTitle}>Typescript</Text>
+    <View style={styles.container}>
+      <StatusBar backgroundColor="transparent" barStyle="dark-content" />
+      <View style={styles.LogoPayPal}>
+        <Image
+          source={require('./assets/logo-mini.png')}
+          style={{marginRight: 16.95}}
+        />
+        <Image source={require('./assets/logo-large.png')} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  LogoPayPal: {
+    flexDirection: 'row',
+    marginTop: height * 0.16133004926,
+    marginHorizontal: width * 0,
+    alignItems: 'baseline',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
   },
   sectionTitle: {
     fontSize: 24,
