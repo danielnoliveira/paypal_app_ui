@@ -6,6 +6,8 @@ interface ActivityContainerProps {
   goActivityScreen: () => void;
 }
 
+import activitys from './../data';
+
 export default function ActivityContainer({
   goActivityScreen,
 }: ActivityContainerProps) {
@@ -19,9 +21,9 @@ export default function ActivityContainer({
           <Text style={styles.buttonActivityText}>View all</Text>
         </TouchableOpacity>
       </View>
-      <ActivityItem />
-      <ActivityItem />
-      <ActivityItem />
+      <ActivityItem data={activitys[0]} />
+      <ActivityItem data={activitys[1]} />
+      <ActivityItem data={activitys[2]} />
     </View>
   );
 }
@@ -46,9 +48,9 @@ const styles = StyleSheet.create({
   buttonActivity: {},
   buttonActivityText: {
     fontFamily: 'Roboto',
-    fontSize: 16,
-    lineHeight: 20,
+    fontSize: 18,
+    lineHeight: 22,
     color: '#243656',
-    opacity: 0.5,
+    opacity: 0.7,
   },
 });

@@ -1,24 +1,39 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-export default function ActivityItem() {
+interface ActivityItemProps {
+  data: {
+    name: string;
+    timeOperation: string;
+    value: number;
+    type: string;
+  };
+}
+
+export default function ActivityItem({data}: ActivityItemProps) {
   return (
     <View style={styleItemActivity.itemActivity}>
       <View style={styleItemActivity.itemActivityHalfContainer}>
         <View style={styleItemActivity.itemActivityIcon}>
-          <Text style={styleItemActivity.itemActivityIconText}>M</Text>
+          <Text style={styleItemActivity.itemActivityIconText}>
+            {data.name.charAt(0)}
+          </Text>
         </View>
         <View>
-          <Text style={styleItemActivity.otherName}>Mike Rine</Text>
-          <Text style={styleItemActivity.timeOccurency}>2 hours ago</Text>
+          <Text style={styleItemActivity.otherName}>{data.name}</Text>
+          <Text style={styleItemActivity.timeOccurency}>
+            {data.timeOperation}
+          </Text>
         </View>
       </View>
       <Text
         style={[
           styleItemActivity.money,
-          true ? styleItemActivity.green : styleItemActivity.red,
+          data.type === 'debit'
+            ? styleItemActivity.green
+            : styleItemActivity.red,
         ]}>
-        +$250
+        {data.type === 'debit' ? `+$${data.value}` : `-$${data.value}`}
       </Text>
     </View>
   );
