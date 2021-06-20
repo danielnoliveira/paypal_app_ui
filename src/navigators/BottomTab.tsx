@@ -1,11 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
 import {Image, Text, StyleSheet} from 'react-native';
 import ContactsScreen from '../screens/ContactsScreen';
 import WalletScreen from '../screens/WalletScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import IconBar from '../components/IconBar';
+import HomeStack from './StackHome';
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -71,7 +71,7 @@ const Main = () => {
           height: 70,
         },
       }}>
-      <BottomTabs.Screen name="Home" component={HomeScreen} />
+      <BottomTabs.Screen name="Home" component={HomeStack} />
       <BottomTabs.Screen name="Contacts" component={ContactsScreen} />
       <BottomTabs.Screen name="Wallet" component={WalletScreen} />
       <BottomTabs.Screen name="Settings" component={SettingsScreen} />
