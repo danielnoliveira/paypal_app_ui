@@ -30,6 +30,7 @@ var days = [
 import activitys from './../data';
 import ActiviesContainer from '../components/ActiviesContainer';
 import ButtonsContainer from '../components/ButtonsContainer';
+import {StatusBar} from 'react-native';
 
 export default function ActivityScreen({navigation}: ActivityProps) {
   const [buttonSelected, setbuttonSelected] = useState('All');
@@ -53,6 +54,11 @@ export default function ActivityScreen({navigation}: ActivityProps) {
 
   return (
     <View style={styles.container}>
+      <StatusBar
+        backgroundColor="transparent"
+        barStyle="dark-content"
+        translucent={true}
+      />
       <View style={stylesHeader.header}>
         <TouchableOpacity
           style={stylesHeader.backButton}
@@ -73,7 +79,6 @@ export default function ActivityScreen({navigation}: ActivityProps) {
           items.reduce<any>(
             (acc, next) => {
               const date = moment(next.timeOperation, 'DD/MM/YYYY');
-              console.log(date);
               const today = new Date();
               if (
                 date.day() === today.getDay() &&
