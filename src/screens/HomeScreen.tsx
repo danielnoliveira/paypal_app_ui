@@ -21,7 +21,7 @@ export default function HomeScreen({navigation}: HomeProps) {
     <View style={styles.container}>
       <StatusBar
         backgroundColor="transparent"
-        barStyle="dark-content"
+        barStyle="light-content"
         translucent={true}
       />
       <HeaderHome />
