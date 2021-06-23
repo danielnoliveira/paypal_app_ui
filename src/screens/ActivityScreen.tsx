@@ -1,22 +1,10 @@
-import {NavigationProp} from '@react-navigation/core';
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {View, StyleSheet, Dimensions, ScrollView} from 'react-native';
 import moment from 'moment';
 import ActivityItem from '../components/ActivityItem';
 
 const {width} = Dimensions.get('window');
 
-interface ActivityProps {
-  navigation: NavigationProp<any>;
-}
 var days = [
   'Domingo',
   'Segunda-feira',
@@ -27,12 +15,13 @@ var days = [
   'Sabado',
 ];
 
-import activitys from './../data';
+import activitys from './../mock_data/data';
 import ActiviesContainer from '../components/ActiviesContainer';
 import ButtonsContainer from '../components/ButtonsContainer';
 import {StatusBar} from 'react-native';
+import HeaderBarScreen from '../components/HeaderBarScreen';
 
-export default function ActivityScreen({navigation}: ActivityProps) {
+export default function ActivityScreen() {
   const [buttonSelected, setbuttonSelected] = useState('All');
   const [items, setItems] = useState(activitys);
 
@@ -59,17 +48,11 @@ export default function ActivityScreen({navigation}: ActivityProps) {
         barStyle="dark-content"
         translucent={true}
       />
-      <View style={stylesHeader.header}>
-        <TouchableOpacity
-          style={stylesHeader.backButton}
-          onPress={() => navigation.navigate('Home')}>
-          <Image source={require('./../../assets/arrow-left.png')} />
-        </TouchableOpacity>
-        <Text style={stylesHeader.title}>Activity</Text>
-        <TouchableOpacity>
-          <Image source={require('./../../assets/search.png')} />
-        </TouchableOpacity>
-      </View>
+      <HeaderBarScreen
+        screenName="Activity"
+        fnTwo={() => console.log('Second button Activity screen')}
+        iconTwo={require('./../../assets/search.png')}
+      />
       <ButtonsContainer
         buttonPressed={buttonPressed}
         buttonSelected={buttonSelected}
@@ -132,23 +115,6 @@ export default function ActivityScreen({navigation}: ActivityProps) {
     </View>
   );
 }
-
-const stylesHeader = StyleSheet.create({
-  header: {
-    flexDirection: 'row',
-    marginTop: 46,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  title: {
-    fontFamily: 'Roboto',
-    fontSize: 22,
-    lineHeight: 32,
-    color: '#243656',
-    fontWeight: '700',
-  },
-  backButton: {height: 32, justifyContent: 'center'},
-});
 
 const styles = StyleSheet.create({
   container: {

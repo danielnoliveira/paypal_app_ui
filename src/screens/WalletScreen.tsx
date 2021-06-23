@@ -1,4 +1,3 @@
-import {NavigationProp} from '@react-navigation/native';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {View, Image, StyleSheet, Dimensions, Text} from 'react-native';
@@ -7,13 +6,9 @@ import Card from '../components/Card';
 import HeaderBarScreen from '../components/HeaderBarScreen';
 import PersonalInfoRow from '../components/PersonalInfoRow';
 
-interface WalletScreenProps {
-  navigation: NavigationProp<any>;
-}
-
 const {width, height} = Dimensions.get('window');
 
-export default function WalletScreen({navigation}: WalletScreenProps) {
+export default function WalletScreen() {
   return (
     <View style={styles.container}>
       <StatusBar
@@ -31,7 +26,6 @@ export default function WalletScreen({navigation}: WalletScreenProps) {
           screenName="Your wallet"
           iconTwo={require('./../../assets/edit1.png')}
           fnTwo={() => console.log('Edit button pressed')}
-          navigation={navigation}
         />
       </View>
       <Image
