@@ -6,7 +6,7 @@ interface ActivityContainerProps {
   goActivityScreen: () => void;
 }
 
-import activitys from './../data';
+import activitys from './../mock_data/data';
 
 export default function ActivityContainer({
   goActivityScreen,

@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -5,11 +6,16 @@ import LinearGradient from 'react-native-linear-gradient';
 interface MoneyButtonProps {
   colored?: boolean;
   img: any;
+  screen: string;
 }
 
-export default function MoneyButton({colored, img}: MoneyButtonProps) {
+export default function MoneyButton({colored, img, screen}: MoneyButtonProps) {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity activeOpacity={0.7} style={stylesButton.container}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate(screen)}
+      activeOpacity={0.7}
+      style={stylesButton.container}>
       <LinearGradient
         style={stylesButton.gradient}
         angle={135}

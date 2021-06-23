@@ -55,7 +55,7 @@ const stylesButtons = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-start',
     borderRadius: 10,
-    marginTop: 30,
+    marginVertical: 30,
     marginHorizontal: 32,
   },
   button: {

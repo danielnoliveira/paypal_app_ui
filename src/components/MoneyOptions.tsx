@@ -5,8 +5,15 @@ import MoneyButton from './MoneyButton';
 export default function MoneyOptions() {
   return (
     <View style={styles.container}>
-      <MoneyButton colored img={require('./../../assets/upload-alt1.png')} />
-      <MoneyButton img={require('./../../assets/upload-alt3.png')} />
+      <MoneyButton
+        screen="SendMoney"
+        colored
+        img={require('./../../assets/upload-alt1.png')}
+      />
+      <MoneyButton
+        screen="SendMoney"
+        img={require('./../../assets/upload-alt3.png')}
+      />
       <TouchableOpacity style={styles.optionsButton}>
         <Image
           style={{width: 32, height: 32}}
