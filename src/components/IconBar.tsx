@@ -8,7 +8,7 @@ interface IconBarProps {
 
 export default function IconBar({children, focused}: IconBarProps) {
   return (
-    <View style={[styles.container, focused ? {} : {width: 32}]}>
+    <View style={[styles.container, focused ? {flex: 1} : {width: 30}]}>
       {children}
     </View>
   );
