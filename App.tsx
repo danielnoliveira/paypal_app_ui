@@ -13,7 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
 import Main from './src/navigators/BottomTab';
-import ActivityScreen from './src/screens/ActivityScreen';
+import SendMoneyScreen from './src/screens/SendMoneyScreen';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +23,7 @@ const App = () => {
       <Stack.Navigator headerMode="none" initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="Activity" component={ActivityScreen} />
+        <Stack.Screen name="SendMoney" component={SendMoneyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
