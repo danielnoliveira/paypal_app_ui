@@ -1,9 +1,8 @@
-import {NavigationProp} from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 interface HeaderBarScreenProps {
-  navigation: NavigationProp<any>;
   screenName: string;
   iconTwo?: any;
   fnTwo?: () => void;
@@ -11,12 +10,12 @@ interface HeaderBarScreenProps {
 }
 
 export default function HeaderBarScreen({
-  navigation,
   screenName,
   iconTwo,
   fnTwo,
   tint,
 }: HeaderBarScreenProps) {
+  const navigation = useNavigation();
   return (
     <View style={stylesHeader.header}>
       <TouchableOpacity
