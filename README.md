@@ -4,7 +4,7 @@
 
 ## Demonstração do App construido com React Native
 
-<div style="display:flex;gap: 20px;">
+<div style="display:flex;gap: 20px; flex-direction: row;">
 
 ![App1](https://media.giphy.com/media/NyVT7BBTIsKyOL0sTe/giphy.gif)
 
